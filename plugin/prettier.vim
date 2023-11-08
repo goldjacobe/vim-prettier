@@ -124,7 +124,7 @@ let g:prettier#config#arrow_parens = get(g:,'prettier#config#arrow_parens', 'alw
 
 " Define the flavor of line endings
 " lf|crlf|cr|all
-" defaut: 'lf' 
+" defaut: 'lf'
 let g:prettier#config#end_of_line = get(g:, 'prettier#config#end_of_line', 'lf')
 
 " Print trailing commas wherever possible when multi-line.
@@ -158,13 +158,10 @@ command! -nargs=? -range=% PrettierCliPath call prettier#PrettierCliPath()
 " sends selected text to prettier cli for formatting
 command! -nargs=? -range=% PrettierFragment call prettier#Prettier(g:prettier#exec_cmd_async, <line1>, <line2>, 0)
 
-" sends entire buffer to prettier cli but format just selection 
+" sends entire buffer to prettier cli but format just selection
 command! -nargs=? -range=% PrettierPartial call prettier#Prettier(g:prettier#exec_cmd_async, <line1>, <line2>, 1)
 
 " map command
-if !hasmapto('<Plug>(Prettier)') && maparg('<Leader>p', 'n') ==# ''
-  nmap <unique> <Leader>p <Plug>(Prettier)
-endif
 nnoremap <silent> <Plug>(Prettier) :Prettier<CR>
 nnoremap <silent> <Plug>(PrettierAsync) :PrettierAsync<CR>
 nnoremap <silent> <Plug>(PrettierFragment) :PrettierFragment<CR>
